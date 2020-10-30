@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.gdu.cash.mapper.NoticeMapper">
+	<select id="selectLatestNoiceList" resultType="kr.co.gdu.cash.vo.Notice">
+		SELECT 
+			notice_id noticeId,
+			notice_title noticeTitle,
+			notice_date noticeDate 
+		FROM notice
+		ORDER BY notice_date DESC
+		LIMIT 0, 5
+	</select>
+</mapper>
