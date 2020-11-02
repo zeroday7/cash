@@ -51,7 +51,6 @@
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
 							<td>${i-(firstDayOfWeek-1)}</td>
 						</c:if>
-
 						<c:if test="${i%7 == 0}">
 							</tr><tr>
 						</c:if>
