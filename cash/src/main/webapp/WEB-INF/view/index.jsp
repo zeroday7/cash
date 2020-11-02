@@ -5,6 +5,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+	.sunday {color : #FF0000;}
+</style>
 </head>
 <body>
 	<h1>index</h1>
@@ -28,7 +31,12 @@
 		</tbody>
 	</table>
 	<!-- 다이어리 -->
-	<h3>${month} 월</h3>
+	<h3>
+		<a href="/index?currentYear=${year}&currentMonth=${month-1}">[이전달]</a>
+		${year}년 ${month} 월
+		<a href="/index?currentYear=${year}&currentMonth=${month+1}">[다음달]</a>
+	</h3>
+	
 	<div>
 		<table border="1" width="100%">
 			<thead>
@@ -49,7 +57,12 @@
 							<td>&nbsp;</td>
 						</c:if>
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
-							<td>${i-(firstDayOfWeek-1)}</td>
+							<c:if test="${i%7 == 1}">
+								<td class="sunday">${i-(firstDayOfWeek-1)}</td>
+							</c:if>
+							<c:if test="${i%7 !=1 }">
+								<td>${i-(firstDayOfWeek-1)}</td>
+							</c:if>
 						</c:if>
 						<c:if test="${i%7 == 0}">
 							</tr><tr>
