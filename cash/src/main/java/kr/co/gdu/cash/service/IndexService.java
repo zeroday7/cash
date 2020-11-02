@@ -11,7 +11,7 @@ import kr.co.gdu.cash.vo.Notice;
 
 @Service
 @Transactional
-public class NoticeService {
+public class IndexService {
 	@Autowired
 	private NoticeMapper noticeMapper;
 	public List<Notice> getLatestNoticeList() {
