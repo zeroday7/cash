@@ -56,6 +56,12 @@
 							</tr><tr>
 						</c:if>
 					</c:forEach>
+					
+					<c:if test="${(lastDay+(firstDayOfWeek-1)) % 7 != 0}">
+						<c:forEach begin="1" end="${7- ((lastDay+(firstDayOfWeek-1)) % 7)}" step="1">
+							<td>&nbsp;</td>
+						</c:forEach>
+					</c:if>
 				</tr>
 			</tbody>
 		</table>
