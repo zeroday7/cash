@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CashbookMapper {
 	List<Map<String, Object>> selectCashInOutList();
+	Integer selectSumCashbookPriceByInOut(Map<String, Object> map);
 }

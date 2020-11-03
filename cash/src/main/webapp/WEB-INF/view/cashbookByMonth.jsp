@@ -31,17 +31,24 @@
 		</tbody>
 	</table>
 	<!-- 다이어리 -->
+	<div>
+		이번달 수입 합계 : ${sumIn}
+	</div>
+	<div>
+		이번달 지출 합계 : ${sumOut}
+	</div>
+	
 	<h3>
-		<a href="/index?currentYear=${year}&currentMonth=${month-1}">[이전달]</a>
-		${year}년 ${month} 월
-		<a href="/index?currentYear=${year}&currentMonth=${month+1}">[다음달]</a>
+		<a href="/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">[이전달]</a>
+		${currentYear}년 ${currentMonth} 월
+		<a href="/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">[다음달]</a>
 	</h3>
 	
 	<div>
 		<table border="1" width="100%">
 			<thead>
 				<tr>
-					<th>일</th>
+					<th class="sunday">일</th>
 					<th>월</th>
 					<th>화</th>
 					<th>수</th>

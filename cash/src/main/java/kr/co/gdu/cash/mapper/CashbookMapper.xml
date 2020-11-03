@@ -14,4 +14,27 @@
 		GROUP BY DATE_FORMAT(cashbook_date, '%Y.%m')
 		LIMIT 3
 	</select>
+	
+	<select id="selectSumCashbookPriceByInOut" parameterType="java.util.Map" resultType="Integer">
+		SELECT NVL(SUM(cashbook_price), 0)
+		FROM cashbook
+		WHERE cashbook_kind = #{cashbookKind} 
+		AND YEAR(cashbook_date) = #{currentYear} 
+		AND MONTH(cashbook_date) = #{currentMonth}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>
