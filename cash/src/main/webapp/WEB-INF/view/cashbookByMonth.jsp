@@ -12,7 +12,7 @@
 <body>
 	<h1>index</h1>
 	<h3>공지사항</h3>
-	<table border="1">
+	<table border="1" width="100%">
 		<thead>
 			<tr>
 				<th>notice_id</th>
