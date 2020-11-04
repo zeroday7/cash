@@ -3,6 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.gdu.cash.mapper.CashbookMapper">
+	<select id="selectCashListByMonth" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT cashbook_kind cashbookKind, 
+				SUM(cashbook_price) cashbookPrice, 
+				DAY(cashbook_date) dday
+		FROM cashbook
+		WHERE YEAR(cashbook_date) = #{currentYear}
+		AND MONTH(cashbook_date) = #{currentMonth}
+		GROUP BY DAY(cashbook_date), cashbook_kind
+	</select>
+	
 	<select id="selectCashInOutList" resultType="java.util.Map">
 		SELECT 
 			DATE_FORMAT(cashbook_date, '%Y.%m') AS "날짜"
@@ -22,6 +32,7 @@
 		AND YEAR(cashbook_date) = #{currentYear} 
 		AND MONTH(cashbook_date) = #{currentMonth}
 	</select>
+
 	
 	
 	

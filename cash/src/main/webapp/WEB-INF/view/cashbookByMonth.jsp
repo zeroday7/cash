@@ -64,12 +64,20 @@
 							<td>&nbsp;</td>
 						</c:if>
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
-							<c:if test="${i%7 == 1}">
-								<td class="sunday">${i-(firstDayOfWeek-1)}</td>
-							</c:if>
-							<c:if test="${i%7 !=1 }">
-								<td>${i-(firstDayOfWeek-1)}</td>
-							</c:if>
+							<td>
+								<div>${i-(firstDayOfWeek-1)}</div>
+								<!-- 지출/수입 목록이 있는 날짜를 cashList에서 검색 -->
+								<c:forEach var="c" items="${cashList}">
+									<c:if test="${i-(firstDayOfWeek-1) == c.dday}">
+										<c:if test="${c.cashbookKind == '수입'}">
+											<div>수입 : ${c.cashbookPrice}</div>
+										</c:if>
+										<c:if test="${c.cashbookKind == '지출'}">
+											<div>지출 : ${c.cashbookPrice}</div>
+										</c:if>
+									</c:if>
+								</c:forEach>
+							</td>
 						</c:if>
 						<c:if test="${i%7 == 0}">
 							</tr><tr>

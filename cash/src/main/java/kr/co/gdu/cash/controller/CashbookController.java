@@ -2,6 +2,7 @@ package kr.co.gdu.cash.controller;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.CashbookService;
-import kr.co.gdu.cash.service.IndexService;
-import kr.co.gdu.cash.vo.Notice;
 
 @Controller
 public class CashbookController {
@@ -44,10 +43,12 @@ public class CashbookController {
 		int lastDay = currentDay.getActualMaximum(Calendar.DATE);
 		int firstDayOfWeek = currentDay.get(Calendar.DAY_OF_WEEK);
 		// -----------------------------------------------------------------------------
-		int sumIn = cashbookService.getSumCashbookPriceByInOut("지출", currentYear, currentMonth);
-		int sumOut = cashbookService.getSumCashbookPriceByInOut("수입", currentYear, currentMonth);
+		int sumIn = cashbookService.getSumCashbookPriceByInOut("수입", currentYear, currentMonth);
+		int sumOut = cashbookService.getSumCashbookPriceByInOut("지출", currentYear, currentMonth);
 		
 		// -----------------------------------------------------------------------------
+		List<Map<String, Object>> cashList = cashbookService.getCashListByMonth(currentYear, currentMonth);
+		// -------------------------------------------------------------------------------
 		
 		// 3. 뷰 모델 추가
 		model.addAttribute("currentYear", currentYear); // 년
@@ -57,6 +58,8 @@ public class CashbookController {
 		
 		model.addAttribute("sumIn", sumIn);
 		model.addAttribute("sumOut", sumOut);
+		
+		model.addAttribute("cashList", cashList);
 		
 		return "cashbookByMonth";
 	}
