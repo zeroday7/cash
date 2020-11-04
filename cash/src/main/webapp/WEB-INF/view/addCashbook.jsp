@@ -14,7 +14,7 @@
 			<tr>
 				<td>cashbook_date</td>
 				<td>
-					<input type="text" name="cashbookPrice" 
+					<input type="text" name="cashbookDate" 
 								value="${param.currentYear}-${param.currentMonth}-${param.currentDay}" 
 								readonly="readonly">
 				</td>
@@ -49,6 +49,7 @@
 				</td>
 			</tr>
 		</table>
+		<button type="submit">수입/지출 입력</button>
 	</form>
 </body>
 </html>

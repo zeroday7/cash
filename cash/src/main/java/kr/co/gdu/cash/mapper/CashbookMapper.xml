@@ -3,6 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.gdu.cash.mapper.CashbookMapper">
+	
+	<insert id="insertCashbook" parameterType="kr.co.gdu.cash.vo.Cashbook">
+		INSERT INTO cashbook(
+			cashbook_kind,
+			category_name,
+			cashbook_price,
+			cashbook_content,
+			cashbook_date,
+			create_date,
+			update_date
+		) VALUES (
+			#{cashbookKind},
+			#{categoryName},
+			#{cashbookPrice},
+			#{cashbookContent},
+			#{cashbookDate},
+			NOW(),
+			NOW()
+		)
+	</insert>
+
 	<select id="selectCashBookListByDay" parameterType="java.util.Map" resultType="kr.co.gdu.cash.vo.Cashbook">
 		SELECT cashbook_id cashbookId, 
 				cashbook_kind cashbookKind, 

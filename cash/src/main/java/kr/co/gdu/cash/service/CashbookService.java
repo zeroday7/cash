@@ -16,6 +16,10 @@ import kr.co.gdu.cash.vo.Cashbook;
 public class CashbookService {
 	@Autowired private CashbookMapper cashBookMapper;
 	
+	public int addCashbook(Cashbook cashbook) {
+		return cashBookMapper.insertCashbook(cashbook);
+	}
+	
 	public List<Cashbook> getCashbookListByDay(int currentYear, int currentMonth, int currentDay) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("currentYear", currentYear);
