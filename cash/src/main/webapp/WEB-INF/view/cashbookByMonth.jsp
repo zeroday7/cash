@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookList</h1>
-
 	<!-- 다이어리 -->
 	<div>
 		이번달 수입 합계 : ${sumIn}
@@ -47,7 +47,11 @@
 						</c:if>
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
 							<td>
-								<div>${i-(firstDayOfWeek-1)}</div>
+								<div><!-- 날짜 -->
+									<a href="/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+										${i-(firstDayOfWeek-1)}
+									</a>
+								</div>
 								<!-- 지출/수입 목록이 있는 날짜를 cashList에서 검색 -->
 								<c:forEach var="c" items="${cashList}">
 									<c:if test="${i-(firstDayOfWeek-1) == c.dday}">

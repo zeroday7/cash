@@ -3,6 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.gdu.cash.mapper.CashbookMapper">
+	<select id="selectCashBookListByDay" parameterType="java.util.Map" resultType="kr.co.gdu.cash.vo.Cashbook">
+		SELECT cashbook_id cashbookId, 
+				cashbook_kind cashbookKind, 
+				category_name categoryName, 
+				cashbook_price cashbookPrice, 
+				cashbook_content cashbookContent
+		FROM cashbook
+		WHERE YEAR(cashbook_date)=#{currentYear}
+		AND MONTH(cashbook_date)=#{currentMonth}
+		AND DAY(cashbook_date)=#{currentDay};
+	</select>
+	
 	<select id="selectCashListByMonth" parameterType="java.util.Map" resultType="java.util.Map">
 		SELECT cashbook_kind cashbookKind, 
 				SUM(cashbook_price) cashbookPrice, 
