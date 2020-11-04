@@ -11,13 +11,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.CashbookService;
+import kr.co.gdu.cash.service.CategoryService;
 import kr.co.gdu.cash.vo.Cashbook;
+import kr.co.gdu.cash.vo.Category;
 
 @Controller
 public class CashbookController {
 	
 	@Autowired private CashbookService cashbookService;
+	@Autowired private CategoryService categoryService;
 	
+	@GetMapping("/addCashbook")
+	public String addCashbook(Model model,
+			@RequestParam(name = "currentYear", required = true) int currentYear,
+			@RequestParam(name = "currentMonth", required = true) int currentMonth,
+			@RequestParam(name = "currentDay", required = true) int currentDay) {
+		List<Category> categoryList = categoryService.getCategoryList();
+		model.addAttribute("categoryList", categoryList);
+		return "addCashbook";
+	}
 	
 	@GetMapping("/cashbookByDay")
 	public String cashbookByDay(Model model,

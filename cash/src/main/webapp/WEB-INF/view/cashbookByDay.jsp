@@ -9,6 +9,12 @@
 <body>
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookListByDay</h1>
+	<div>
+		<a href="">이전</a>
+		${param.currentYear}년 ${param.currentMonth}월 ${param.currentDay}일
+		<a href="">이후</a>
+	</div>
+	<a href="/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">수입/지출 입력</a>
 	<table border="1">
 		<thead>
 			<tr>
@@ -17,6 +23,8 @@
 				<th>categoryName</th>
 				<th>cashbookPrice</th>
 				<th>cashbookContent</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +35,8 @@
 					<td>${c.categoryName}</td>
 					<td>${c.cashbookPrice}</td>
 					<td>${c.cashbookContent}</td>
+					<td><a href="">수정</a></td>
+					<td><a href="">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
