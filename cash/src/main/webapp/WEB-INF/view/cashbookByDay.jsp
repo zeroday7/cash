@@ -14,7 +14,7 @@
 		${param.currentYear}년 ${param.currentMonth}월 ${param.currentDay}일
 		<a href="">이후</a>
 	</div>
-	<a href="/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">수입/지출 입력</a>
+	<a href="/admin/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">수입/지출 입력</a>
 	<table border="1">
 		<thead>
 			<tr>
