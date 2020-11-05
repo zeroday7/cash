@@ -16,7 +16,6 @@
 				<tr>
 					<th>notice_id</th>
 					<th>notice_title</th>
-					<th>notice_content</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,7 +23,6 @@
 					<tr>
 						<td>${n.noticeId}</td>
 						<td>${n.noticeTitle}</td>
-						<td>${n.noticeContent}</td><!-- n.getNoticeContent() -->
 					</tr>
 				</c:forEach>
 			</tbody>
