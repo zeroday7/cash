@@ -18,6 +18,12 @@ public class NoticeService {
 	@Autowired private NoticeMapper noticeMapper;
 	@Autowired private CashbookMapper cashbookMapper;
 	 
+	public List<Notice> getNoticeListByPage(int currentPage, int rowPerPage) {
+		// int currentPage, int rowPerPage -> beginRow
+		// noticeMapper 메서드롤 호출
+		return null;
+	}
+	
 	// issue : noticeList....중복
 	public Map<String, Object> getNoticeAndInOutList() { 
 		List<Notice> noticeList = noticeMapper.selectLatestNoiceList();
