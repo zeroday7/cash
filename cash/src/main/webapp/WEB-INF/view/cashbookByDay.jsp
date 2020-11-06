@@ -10,11 +10,18 @@
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookListByDay</h1>
 	<div>
-		<a href="">이전</a>
-		${param.currentYear}년 ${param.currentMonth}월 ${param.currentDay}일
-		<a href="">이후</a>
+		<a href="/admin/cashbookByDay?target=pre&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">
+			이전
+		</a>
+		
+		<span>${currentYear}년 ${currentMonth}월 ${currentDay}일</span>
+		
+		<a href="/admin/cashbookByDay?target=next&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">
+			이후
+		</a>
+		
 	</div>
-	<a href="/admin/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">수입/지출 입력</a>
+	<a href="/admin/addCashbook?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">수입/지출 입력</a>
 	<table border="1">
 		<thead>
 			<tr>

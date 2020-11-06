@@ -21,6 +21,10 @@ public class NoticeService {
 	public List<Notice> getNoticeListByPage(int currentPage, int rowPerPage) {
 		// int currentPage, int rowPerPage -> beginRow
 		// noticeMapper 메서드롤 호출
+		Map<String, Integer> map = new HashMap<>();
+		map.put("beginRow", (currentPage-1)*rowPerPage);
+		map.put("rowPerPage", rowPerPage);
+		noticeMapper.selectNoticeListByPage(map);
 		return null;
 	}
 	

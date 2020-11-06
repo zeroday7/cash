@@ -42,12 +42,28 @@ public class CashbookController {
 	
 	@GetMapping("/admin/cashbookByDay")
 	public String cashbookByDay(Model model,
+								@RequestParam(name = "target", defaultValue = "") String target,
 								@RequestParam(name = "currentYear", required = true) int currentYear,
 								@RequestParam(name = "currentMonth", required = true) int currentMonth,
 								@RequestParam(name = "currentDay", required = true) int currentDay) {
+		Calendar targetDay = Calendar.getInstance();
+		targetDay.set(Calendar.YEAR, currentYear);
+		targetDay.set(Calendar.MONTH, currentMonth-1);
+		targetDay.set(Calendar.DATE, currentDay);
+		if(target.equals("pre")) {
+			targetDay.add(Calendar.DATE, -1);
+		} else if(target.equals("next")) {
+			targetDay.add(Calendar.DATE, 1);
+		}
 		
-		List<Cashbook> cashbookList = cashbookService.getCashbookListByDay(currentYear, currentMonth, currentDay);
+		List<Cashbook> cashbookList = cashbookService.getCashbookListByDay(
+											targetDay.get(Calendar.YEAR), 
+											targetDay.get(Calendar.MONTH)+1, 
+											targetDay.get(Calendar.DATE));	
 		model.addAttribute("cashbookList", cashbookList);
+		model.addAttribute("currentYear", targetDay.get(Calendar.YEAR));
+		model.addAttribute("currentMonth", targetDay.get(Calendar.MONTH)+1);
+		model.addAttribute("currentDay", targetDay.get(Calendar.DATE));
 		return "cashbookByDay";
 	}
 	

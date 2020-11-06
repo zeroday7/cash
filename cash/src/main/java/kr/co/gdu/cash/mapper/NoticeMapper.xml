@@ -6,7 +6,7 @@
 	<select id="selectLatestNoiceList" resultType="kr.co.gdu.cash.vo.Notice">
 		SELECT 
 			notice_id noticeId,
-			notice_title noticeTitle,
+			notice_title noticeTitle
 		FROM notice
 		ORDER BY notice_date DESC
 		LIMIT 0, 5
