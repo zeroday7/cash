@@ -48,7 +48,7 @@
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
 							<td>
 								<div><!-- ³¯Â¥ -->
-									<a href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+									<a href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										${i-(firstDayOfWeek-1)}
 									</a>
 								</div>

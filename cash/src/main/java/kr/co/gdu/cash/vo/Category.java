@@ -2,21 +2,21 @@ package kr.co.gdu.cash.vo;
 
 public class Category {
 	private String categoryName;
-	private String categoryInfo;
+	private String cashbookKind;
 	public String getCategoryName() {
 		return categoryName;
 	}
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	public String getCategoryInfo() {
-		return categoryInfo;
+	public String getCashbookKind() {
+		return cashbookKind;
 	}
-	public void setCategoryInfo(String categoryInfo) {
-		this.categoryInfo = categoryInfo;
+	public void setCashbookKind(String cashbookKind) {
+		this.cashbookKind = cashbookKind;
 	}
 	@Override
 	public String toString() {
-		return "Category [categoryName=" + categoryName + ", categoryInfo=" + categoryInfo + "]";
+		return "Category [categoryName=" + categoryName + ", cashbookKind=" + cashbookKind + "]";
 	}
 }
