@@ -4,5 +4,5 @@
 	<a href="/admin/cashbookByMonth">cashbook</a>
 	<a href="/admin/cashbookList/1">cashbookList</a>
 	<a href="/admin/logout">logout</a>
-	<a href="/admin/cashStats.html">cashStats</a>
+	<a href="/admin/chart1.jsp">cahrt</a>
 </div>
