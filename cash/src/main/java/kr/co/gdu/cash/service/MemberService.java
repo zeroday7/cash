@@ -12,6 +12,10 @@ import kr.co.gdu.cash.vo.Member;
 public class MemberService {
 	@Autowired private MemberMapper memberMapper;
 	
+	public int addMember(Member member) {
+		return memberMapper.insertMember(member);
+	}
+	
 	public Member getMemberById(Member paramMember) {
 		Member member = memberMapper.selectMemberById(paramMember.getId());
 		if(member != null && member.getPw().equals(paramMember.getPw())==true) {
