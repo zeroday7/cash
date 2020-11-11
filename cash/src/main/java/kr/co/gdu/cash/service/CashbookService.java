@@ -16,6 +16,17 @@ import kr.co.gdu.cash.vo.Cashbook;
 public class CashbookService {
 	@Autowired private CashbookMapper cashBookMapper;
 	
+	public List<Cashbook> getCashbookListAll() {
+		return cashBookMapper.selectCashbookListAll();
+	}
+	
+	public List<Cashbook> getCashbookListByPage(int currentPage, int rowPerPage) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("beginRow", (currentPage-1)*rowPerPage);
+		map.put("rowPerPage", rowPerPage);
+		return cashBookMapper.selectCashbookListByPage(map);
+	}
+	
 	public int addCashbook(Cashbook cashbook) {
 		return cashBookMapper.insertCashbook(cashbook);
 	}
@@ -44,17 +55,3 @@ public class CashbookService {
 		return sum;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

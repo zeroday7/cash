@@ -23,6 +23,14 @@ public class CashbookController {
 	@Autowired private CashbookService cashbookService;
 	@Autowired private CategoryService categoryService;
 	
+	@GetMapping("/admin/cashbookList/{currentPage}")
+	public String cashbookList(Model model, 
+							@PathVariable(name = "currentPage", required = true) int currentPage) {
+		int rowPerPage = 20;
+		List<Cashbook> cashbookList = cashbookService.getCashbookListByPage(currentPage, rowPerPage);
+		model.addAttribute("cashbookList", cashbookList);
+		return "cashbookList";
+	}
 	
 	@PostMapping("/admin/addCashbook")
 	public String addCashbook(Cashbook cashbook) { // 커맨드객체

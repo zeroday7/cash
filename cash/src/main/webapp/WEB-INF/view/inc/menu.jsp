@@ -2,6 +2,7 @@
 <div>
 	<a href="/admin/index">index</a>
 	<a href="/admin/cashbookByMonth">cashbook</a>
+	<a href="/admin/cashbookList/1">cashbookList</a>
 	<a href="/admin/logout">logout</a>
-	<a href="http://localhost:8080/cashStats.html">cashStats</a>
+	<a href="/admin/cashStats.html">cashStats</a>
 </div>
