@@ -12,54 +12,54 @@
 <body>
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookList</h1>
-	<!-- ´ÙÀÌ¾î¸® -->
+	<!-- ë‹¤ì´ì–´ë¦¬ -->
 	<div>
-		ÀÌ¹ø´Ş ¼öÀÔ ÇÕ°è : ${sumIn}
+		ì´ë²ˆë‹¬ ìˆ˜ì… í•©ê³„ : ${sumIn}
 	</div>
 	<div>
-		ÀÌ¹ø´Ş ÁöÃâ ÇÕ°è : ${sumOut}
+		ì´ë²ˆë‹¬ ì§€ì¶œ í•©ê³„ : ${sumOut}
 	</div>
 	
 	<h3>
-		<a href="/admin//cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">[ÀÌÀü´Ş]</a>
-		${currentYear}³â ${currentMonth} ¿ù
-		<a href="/admin//cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">[´ÙÀ½´Ş]</a>
+		<a href="/admin//cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">[ì´ì „ë‹¬]</a>
+		${currentYear}ë…„ ${currentMonth} ì›”
+		<a href="/admin//cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">[ë‹¤ìŒë‹¬]</a>
 	</h3>
 	
 	<div>
 		<table border="1" width="100%">
 			<thead>
 				<tr>
-					<th class="sunday">ÀÏ</th>
-					<th>¿ù</th>
-					<th>È­</th>
-					<th>¼ö</th>
-					<th>¸ñ</th>
-					<th>±İ</th>
-					<th>Åä</th>
+					<th class="sunday">ì¼</th>
+					<th>ì›”</th>
+					<th>í™”</th>
+					<th>ìˆ˜</th>
+					<th>ëª©</th>
+					<th>ê¸ˆ</th>
+					<th>í† </th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<c:forEach var="i" begin="1" end="${lastDay+(firstDayOfWeek-1)}" step="1">
-						<c:if test="${i-(firstDayOfWeek-1) < 1}">
+						<c:if test="${i-(firstDayOfWeek-1) <= 0 }">
 							<td>&nbsp;</td>
 						</c:if>
 						<c:if test="${i-(firstDayOfWeek-1) > 0}">
 							<td>
-								<div><!-- ³¯Â¥ -->
+								<div><!-- ë‚ ì§œ -->
 									<a href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										${i-(firstDayOfWeek-1)}
 									</a>
 								</div>
-								<!-- ÁöÃâ/¼öÀÔ ¸ñ·ÏÀÌ ÀÖ´Â ³¯Â¥¸¦ cashList¿¡¼­ °Ë»ö -->
+								<!-- ì§€ì¶œ/ìˆ˜ì… ëª©ë¡ì´ ìˆëŠ” ë‚ ì§œë¥¼ cashListì—ì„œ ê²€ìƒ‰ -->
 								<c:forEach var="c" items="${cashList}">
 									<c:if test="${i-(firstDayOfWeek-1) == c.dday}">
-										<c:if test="${c.cashbookKind == '¼öÀÔ'}">
-											<div>¼öÀÔ : ${c.cashbookPrice}</div>
+										<c:if test="${c.cashbookKind == 'ìˆ˜ì…'}">
+											<div>ìˆ˜ì… : ${c.cashbookPrice}</div>
 										</c:if>
-										<c:if test="${c.cashbookKind == 'ÁöÃâ'}">
-											<div>ÁöÃâ : ${c.cashbookPrice}</div>
+										<c:if test="${c.cashbookKind == 'ì§€ì¶œ'}">
+											<div>ì§€ì¶œ : ${c.cashbookPrice}</div>
 										</c:if>
 									</c:if>
 								</c:forEach>
